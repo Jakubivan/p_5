@@ -5,6 +5,9 @@ import javax.swing.*;
 public class Main{
 
     public static void main (String args[])
-    {	new TestFrame();
+    {   JFrame f = new JFrame();
+        f.add(new TestCanvas());
+        f.setSize(300,300);
+        f.setVisible(true);
     }
 }
