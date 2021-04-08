@@ -5,13 +5,14 @@ import java.util.*;
 
 class TestCanvas extends Canvas
 {
-    public HashSet<Rectangle> OurObjects = new HashSet<Rectangle>();
+    public HashSet<Rectangle> OurObjects = new HashSet<>();
     public void NewObjects ()
-    {	int i = 0;
-        int j = 20;
-        while (i<5)
-        {	OurObjects.add(new Rectangle(10,j,20,20));
-            j = j + 30; i++;
+    {	int i = 20;
+        int j = 0;
+        while (j<5)
+        {	OurObjects.add(new Rectangle( i,20,20,20));
+            j++;
+            i=i+30;
         }
     }
 
