@@ -5,11 +5,10 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-class TestFrame extends JFrame
-        implements ItemListener
-{   JRadioButton one;
-    JRadioButton two;
-    ButtonGroup bg = new ButtonGroup();
+class TestFrame extends JFrame implements ItemListener
+
+{   JCheckBox one;
+    JCheckBox two;
     JTextField In;
 
     public TestFrame ()
@@ -17,27 +16,30 @@ class TestFrame extends JFrame
         setLayout(new BorderLayout());
         setSize(500,400);
 
-        one = new JRadioButton("one");
-        add("North",one);
-        one.addItemListener(this);
-        bg.add(one);
+        add("North", one = new JCheckBox("one", true)); one.addItemListener(this);
 
-        two = new JRadioButton("two", true);
-        add("Center", two);
-        two.addItemListener(this);
-        bg.add(two);
+        add("Center", two = new JCheckBox("two")); two.addItemListener(this);
+
         add("South",In = new JTextField());
+
         In.setText("One is " + one.isSelected() + " and two is " + two.isSelected());
+
         pack();
+
         setVisible(true);
+
     }
+
+
 
     public void itemStateChanged (ItemEvent e)
-    {   if (e.getSource()==one)
-    {   In.setText("One is " + one.isSelected() + " and two is " + two.isSelected());
+    {   if ((e.getSource()==one)||(e.getSource()==two))
+    {
+        In.setText("One is " + one.isSelected() + " and two is " + two.isSelected());
     }
-    else if (e.getSource()==two)
-    {   In.setText("Two is " + two.isSelected() + " and one is " + one.isSelected());
-    }
+    /*else if (e.getSource()==two)
+    {
+        In.setText("Two is " + two.isSelected() + " and one is " + one.isSelected());
+    }*/
     }
 }
