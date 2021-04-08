@@ -7,4 +7,5 @@ public class Main {
         JFrame F = new JFrame();
         F.setSize(300,300);
         F.setVisible(true); }
+        //koment
 }
