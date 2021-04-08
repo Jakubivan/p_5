@@ -1,17 +1,18 @@
 package sk.stuba.fei.uim.oop;
 import javax.swing.*;
-import java.awt.*;
+
 
 public class Main{
+
     public static void main (String args[]) {
         JFrame F=new JFrame();
-        F.setLayout(new GridLayout(0,2));
-        F.add(new JLabel("Riadok 1, Stlpec 1 "));
-        F.add(new JLabel("Riadok 1, Stlpec 2"));
-        F.add(new JLabel("Riadok 2, Stlpec 1 "));
-        F.add(new JLabel("Riadok 2, Stlpec 2"));
-        // Anzeigen:
-        F.pack();
+        F.setSize(300,300);
+        JPanel P=new JPanel(); // JPanel pre JButton
+        JButton B=new JButton("OK");
+        B.addActionListener(new ButtonPrinter()); // Registracia objektu
+        // ButtonPrinter ako Event-Listener.
+        P.add(B); // JButton na JPanel
+        F.add(P); // JPanel na JFrame
         F.setVisible(true);
     }
 }
